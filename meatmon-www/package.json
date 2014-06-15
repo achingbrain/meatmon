@@ -1,0 +1,31 @@
+{
+  "name": "meatmon-www",
+  "version": "1.0.0",
+  "description": "Meat monitor website",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/achingbrain/meatmon.git"
+  },
+  "dependencies": {
+    "express": "^4.0",
+    "express3-handlebars": "^0.5",
+    "winston": "^0.7",
+    "underscore.string": "^2.3",
+    "wantsit": "^1.0",
+    "rc": "^0.4",
+    "js-yaml": "^3.0",
+    "markdown": "^0.5",
+    "async": "^0.9",
+    "nano-repository": "^0.0",
+    "columbo": "^1.0",
+    "nano": "^5.0",
+    "body-parser": "^1.0",
+
+    "bower": "^1.0"
+  }
+}

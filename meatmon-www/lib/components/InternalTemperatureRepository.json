@@ -1,0 +1,7 @@
+{
+  "views": {
+    "all": {
+      "map": "function(doc) {if(doc) emit(null, doc)}"
+    }
+  }
+}

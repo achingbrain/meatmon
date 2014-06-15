@@ -1,0 +1,16 @@
+{
+  "name": "meatmon-client",
+  "version": "1.0.0",
+  "description": "Meat monitor client",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/achingbrain/meatmon.git"
+  },
+  "dependencies": {
+    "rc": "^0.4",
+    "johnny-five": "^0.7",
+    "restify": "^2.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "achingbrain-www",
+  "version": "1.0.0",
+  "private": true,
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jquery": "^2.0",
+    "highcharts-release": "^4.0",
+    "async": "^0.9"
+  }
+}
