@@ -14,12 +14,19 @@ async.parallel([
 ], function(error, results) {
   if(error) return console.error(error)
 
+  Highcharts.setOptions({
+    global: {
+      timezoneOffset: -60
+    }
+  });
+
   $('#container').highcharts({
-    title: {
-      text: 'MeatMon',
-      x: -20 //center
+    title: false,
+    chart: {
+      type: 'spline'
     },
     xAxis: {
+      type: 'datetime',
       title: {
         text: 'Time'
       }
@@ -57,7 +64,7 @@ var toSeries = function(data) {
   var output = []
 
   data.forEach(function(datum) {
-    output.push([datum.date, datum.celsius])
+    output.push([new Date(datum.date).getTime(), datum.celsius])
   })
 
   return output

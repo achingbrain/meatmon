@@ -5,6 +5,13 @@
     <link rel="stylesheet" href="/css/meatmon.css"/>
   </head>
   <body>
+    <h1>meatmon</h1>
+    <div id="temperature">
+      <h2>Current temperature</h2>
+      <p>Internal: {{internalTemperature}}&deg;C</p>
+      <p>External: {{externalTemperature}}&deg;C</p>
+      <p>Ready: {{ready}}</p>
+    </div>
     <div id="container"></div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/highcharts-release/highcharts.js"></script>

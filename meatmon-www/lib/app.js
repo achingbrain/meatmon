@@ -35,7 +35,8 @@ var WWW = function() {
   this._container.register('config', config)
 
   // database
-  var connection = new Nano('http://' + config.couchdb.host + ':' + config.couchdb.port)
+  var connection = new Nano(process.env.COUCHDB_URL || 'http://' + config.couchdb.host + ':' + config.couchdb.port)
+  //var connection = new Nano('https://meatmon.iriscouch.com')
   this._container.register('connection', Nano);
 
   // create collections
@@ -53,7 +54,7 @@ var WWW = function() {
   this._container.createAndRegister('columbo', Columbo, {
     resourceDirectory: __dirname + '/resources',
     resourceCreator: function(resource, name) {
-      return this._container.createAndRegister(name + 'Resource', resource);
+      return this._container.createAndRegister(name, resource);
     }.bind(this),
     idFormatter: function(id) {
       return ":" + id;

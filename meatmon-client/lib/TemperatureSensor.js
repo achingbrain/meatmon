@@ -1,11 +1,11 @@
 var EventEmitter = require('events').EventEmitter,
   util = require('util')
 
-// always a factor of 5
-const FUDGE_FACTOR = (2 * 5) * -1
-
-var TemperatureSensor = function(name, board, pin) {
+var TemperatureSensor = function(board, pin, fudgeFactor, interval) {
   EventEmitter.call(this)
+
+  // how often to report the temperature
+  interval = interval || 60000
 
   // turn on reporting for that pin
   board.io.reportAnalogPin(pin, 1)
@@ -14,6 +14,7 @@ var TemperatureSensor = function(name, board, pin) {
   var temporary = 0
   this._temperature = 0
 
+  // read the temperature occasionally
   board.analogRead(pin, function(value) {
     var voltage = value * (5.0 / 1023.0);
     var temp = (voltage - 1.25) / 0.005;
@@ -24,17 +25,17 @@ var TemperatureSensor = function(name, board, pin) {
     if(measurements == 10) {
       measurements = 0
       this._temperature = parseInt(temporary/10, 10)
-      this._temperature += FUDGE_FACTOR
+      this._temperature += fudgeFactor
       temporary = 0
-
-      console.info(name, 'temperature', this._temperature, '°C')
     }
   }.bind(this))
+
+  setInterval(function() {
+    this._emit('temperature', this._temperature)
+  }.bind(this), interval)
 }
 util.inherits(TemperatureSensor, EventEmitter)
 
-TemperatureSensor.prototype.getTemperature = function() {
-  return this._temperature
+module.exports = function(board, pin, fudgeFactor, interval) {
+  return new TemperatureSensor(board, pin, fudgeFactor, interval)
 }
-
-module.exports = TemperatureSensor
