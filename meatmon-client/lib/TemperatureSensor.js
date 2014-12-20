@@ -1,7 +1,7 @@
 var EventEmitter = require('events').EventEmitter,
   util = require('util')
 
-var TemperatureSensor = function(board, pin, fudgeFactor, interval) {
+var TemperatureSensor = function(name, board, pin, fudgeFactor, interval) {
   EventEmitter.call(this)
 
   // how often to report the temperature

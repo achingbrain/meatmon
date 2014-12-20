@@ -13,17 +13,17 @@
   },
   "dependencies": {
     "express": "^4.0",
-    "express3-handlebars": "^0.5",
-    "winston": "^0.7",
+    "express-handlebars": "^1.0",
+    "winston": "^0.8",
     "underscore.string": "^2.3",
     "wantsit": "^1.0",
-    "rc": "^0.4",
+    "rc": "^0.5",
     "js-yaml": "^3.0",
     "markdown": "^0.5",
     "async": "^0.9",
-    "nano-repository": "^0.0",
+    "nano-repository": "^1.0",
     "columbo": "^1.0",
-    "nano": "^5.0",
+    "nano": "^6.0",
     "body-parser": "^1.0",
 
     "bower": "^1.0"

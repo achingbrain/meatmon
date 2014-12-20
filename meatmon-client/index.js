@@ -22,7 +22,7 @@ board.on('ready', function() {
   console.info('Connected to', config.arduino.device)
 
   // setup internal temperature monitor
-  var internalTemperatureSensor = temperatureSensor(board, 3, -36)
+  var internalTemperatureSensor = temperatureSensor('internal', board, 3, 9)
   internalTemperatureSensor.on('temperature', function(temperature) {
     console.info('Posting internal temperature %d°C', temperature);
 
@@ -34,7 +34,7 @@ board.on('ready', function() {
   })
 
   // setup external temperature
-  var externalTemperatureSensor = temperatureSensor(board, 4, -36)
+  var externalTemperatureSensor = temperatureSensor('external', board, 4, 12)
   externalTemperatureSensor.on('temperature', function(temperature) {
     console.info('Posting external temperature %d°C', temperature);
 
