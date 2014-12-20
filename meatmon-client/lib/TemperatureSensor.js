@@ -31,7 +31,7 @@ var TemperatureSensor = function(board, pin, fudgeFactor, interval) {
   }.bind(this))
 
   setInterval(function() {
-    this._emit('temperature', this._temperature)
+    this.emit('temperature', this._temperature)
   }.bind(this), interval)
 }
 util.inherits(TemperatureSensor, EventEmitter)
