@@ -9,7 +9,7 @@
     "url": "git://github.com/achingbrain/meatmon.git"
   },
   "dependencies": {
-    "johnny-five": "^0.7",
+    "johnny-five": "^0.8",
     "restify": "^2.0"
   }
 }
