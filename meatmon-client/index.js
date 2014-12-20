@@ -19,6 +19,8 @@ var client = restify.createJsonClient({
 console.info('Connecting to', config.arduino.device)
 var board = new five.Board({port: config.arduino.device})
 board.on('ready', function() {
+  console.info('Connected to', config.arduino.device)
+
   // setup internal temperature monitor
   var internalTemperatureSensor = temperatureSensor(board, 3, -36)
   internalTemperatureSensor.on('temperature', function(temperature) {
