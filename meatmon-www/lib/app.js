@@ -40,11 +40,11 @@ var WWW = function() {
   this._container.register('connection', Nano);
 
   // create collections
-  connection.db.create('meatmon_external_temperature');
-  this._container.register('externalTemperatureDb', connection.use('meatmon_external_temperature'));
+  connection.db.create('meatmon_external_temperature_jailmake');
+  this._container.register('externalTemperatureDb', connection.use('meatmon_external_temperature_jailmake'));
 
-  connection.db.create('meatmon_internal_temperature');
-  this._container.register('internalTemperatureDb', connection.use('meatmon_internal_temperature'));
+  connection.db.create('meatmon_internal_temperature_jailmake');
+  this._container.register('internalTemperatureDb', connection.use('meatmon_internal_temperature_jailmake'));
 
   // web controllers
   this._container.createAndRegisterAll(__dirname + '/components')
